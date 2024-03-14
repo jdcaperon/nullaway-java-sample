@@ -1,6 +1,6 @@
 // Copyright 2024 Canva Inc. All Rights Reserved.
 
-package com.canva.analytics.event.common.stream;
+package net.sridharan.sample;
 
 import org.jspecify.annotations.Nullable;
 
