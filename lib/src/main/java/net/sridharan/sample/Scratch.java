@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 class Scratch {
-  record Foo(@Nullable String bar, String baz){}
+  public record Foo(@Nullable String bar, String baz){}
   record Qux(String a, String b){}
   record Transformer(){
     public static Qux transform(String bar) {
@@ -18,10 +18,10 @@ class Scratch {
     }
   }
   void streams() {
-    List<Foo> foos = new ArrayList<>();
+    List<Foo> foos = List.of(new Foo("a-b", "c"));
     foos.stream()
-        .filter(f -> f.bar != null)
-        // NullAway complains about nullability of name even though name is enforced
-        .collect(Collectors.toMap(f -> Transformer.transform(f.bar), f -> f.baz));
+            .filter(f -> f.bar != null)
+            // NullAway complains about nullability of bar even though bar is null checked
+            .collect(Collectors.toMap(f -> Transformer.transform(f.bar), f -> f.baz));
   }
 }
