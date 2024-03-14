@@ -2,10 +2,11 @@
 
 package com.canva.analytics.event.common.stream;
 
+import org.jspecify.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.annotation.Nullable;
 
 class Scratch {
   record Foo(@Nullable String bar, String baz){}
