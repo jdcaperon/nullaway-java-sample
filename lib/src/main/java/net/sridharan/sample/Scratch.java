@@ -29,11 +29,11 @@ class Scratch {
   }
 
   // Fine in this environment but not in mine
+  // In my env, Nullaway complains about the nullability of bar in collect as above
   void streams2() {
     List<Foo> foos = List.of(new Foo("a-b", "c"));
     foos.stream()
             .filter(f -> f.bar != null)
-            // NullAway complains about nullability of bar even though bar is null checked
             .collect(Collectors.toMap(f -> f.bar, f -> f.baz));
   }
 }
